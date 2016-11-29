@@ -129,7 +129,7 @@ class Client(RedisCommandsMixin):
         l = "*%d" % len(args)
         lines = [l.encode('utf-8')]
         for arg in args:
-            if not isinstance(arg, string_types):
+            if not isinstance(arg, (string_types, bytes,)):
                 arg = str(arg)
             if isinstance(arg, text_type):
                 arg = arg.encode('utf-8')
